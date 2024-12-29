@@ -1541,6 +1541,7 @@ sleep 0.1111
 # -------------------------
 clear
 echo -e "${W}INSTALL WITH LOCAL APPIMAGE (/system/switch/appimages/) OTHERWISE DOWNLOAD IT ONLINE WAIT 1 TO 5 MINUTES!!"
+mkdir /userdata/system/switch/appimages 2>/dev/null
 cd /userdata/system/switch/appimages
 suyU="/userdata/system/switch/appimages/suyu.AppImage"
 if [ -f "$suyU" ]; then

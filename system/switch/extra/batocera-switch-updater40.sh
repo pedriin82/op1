@@ -2270,6 +2270,7 @@ function post-install() {
 sleep 1
 echo
 echo -e "${THEME_COLOR_OK}❯❯❯ ${F}INSTALL WITH LOCAL APPIMAGE OTHERWISE DOWNLOAD SUYU-DEV ${T}0.0.3${T}"
+mkdir /userdata/system/switch/appimages 2>/dev/null
 cd /userdata/system/switch/appimages
 suyU="/userdata/system/switch/appimages/suyu.AppImage"
 if [ -f "$suyU" ]; then
