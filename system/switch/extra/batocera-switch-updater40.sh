@@ -1115,8 +1115,8 @@ fi
 ##
 if [ "$3" = "RYUJINX" ]; then
 T=$THEME_COLOR_RYUJINX
-version=$(curl -s https://api.github.com/repos/GreemDev/Ryujinx/releases/latest | grep -oP '(?<="tag_name": ")[^"]*')
-wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/ryujinx-${version}-linux_x64.tar.gz" "https://github.com/GreemDev/Ryujinx/releases/download/$version/ryujinx-${version}-linux_x64.tar.gz"
+version=$(curl -s https://api.github.com/repos/Ryubing/Ryujinx/releases/latest | grep -oP '(?<="tag_name": ")[^"]*')
+wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/ryujinx-${version}-linux_x64.tar.gz" "https://github.com/Ryubing/Ryujinx/releases/download/$version/ryujinx-${version}-linux_x64.tar.gz"
 link_ryujinx=/userdata/system/switch/ryujinx-${version}-linux_x64.tar.gz
 link_tarR="/userdata/system/switch/appimages/ryujinx1.2.67.tar.gz"
 # --------------------------------------------------------
