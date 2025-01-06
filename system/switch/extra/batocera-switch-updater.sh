@@ -172,7 +172,7 @@ rm -rf "$f" 2>/dev/null
    echo "[Desktop Entry]" >> "$f"
    echo "Version=1.0" >> "$f"
       if [[ "$Name" = "yuzuEA" ]]; then 
-         echo "Icon=/userdata/system/switch/extra/icon_yuzu.png" >> "$f"
+         echo "Icon=/userdata/system/switch/extra/yuzuEA.png" >> "$f"
          echo 'Exec=/userdata/system/switch/yuzuEA.AppImage' >> "$f" 
          fi
       if [[ "$Name" = "Ryujinx" ]]; then 
