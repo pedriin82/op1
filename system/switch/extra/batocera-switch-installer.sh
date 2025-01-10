@@ -154,6 +154,8 @@ rm /userdata/system/configs/emulationstation/es_systems_switch.cfg 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_features.cfg 2>/dev/null
 rm "/userdata/roms/ports/Sudachi Qlauncher.sh" 2>/dev/null 
 rm "/userdata/roms/ports/Sudachi Qlauncher.sh.keys" 2>/dev/null
+rm "/userdata/roms/ports/Switch Updater40.sh.keys" 2>/dev/null
+rm "/userdata/roms/ports/Switch Updater40.sh" 2>/dev/null
 
 # -------------------------------------------------------------------- 
 # FILL PATHS
