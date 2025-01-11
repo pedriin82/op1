@@ -149,8 +149,15 @@ fi
 # -------------------------------------------------------------------- 
 # PURGE OLD INSTALLS 
 #rm -rf /userdata/system/switch 2>/dev/null
+rm /userdata/system/switch/*.AppImage 2>/dev/null
+rm -rf /userdata/system/switch/configgen 2>/dev/null
+rm -rf /userdata/system/switch/extra 2>/dev/null
+rm -rf /userdata/system/switch/logs 2>/dev/null
+rm -rf /userdata/system/switch/sudachi 2>/dev/null
+rm "/userdata/system/switch/CONFIG.txt" 2>/dev/null
 rm /userdata/system/configs/emulationstation/add_feat_switch.cfg 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_systems_switch.cfg 2>/dev/null
+rm /userdata/system/configs/emulationstation/es_features_switch.cfg 2>/dev/null
 rm /userdata/system/configs/emulationstation/es_features.cfg 2>/dev/null
 rm "/userdata/roms/ports/Sudachi Qlauncher.sh" 2>/dev/null 
 rm "/userdata/roms/ports/Sudachi Qlauncher.sh.keys" 2>/dev/null
