@@ -63,6 +63,7 @@ class SudachiGenerator(Generator):
             if not os.path.islink("/userdata/system/configs/sudachi/keys"):
                 shutil.rmtree("/userdata/system/configs/sudachi/keys")
         if not os.path.exists("/userdata/system/configs/sudachi/keys"):
+	    os.mkdir("/userdata/system/configs/yuzu/keys")
             st = os.symlink("/userdata/system/configs/yuzu/keys","/userdata/system/configs/sudachi/keys")
 
         if os.path.exists("/userdata/system/configs/sudachi/nand"):
