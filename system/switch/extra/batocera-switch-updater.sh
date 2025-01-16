@@ -1558,26 +1558,27 @@ else
 		   echo -e "${T}SUYU-DEV   ${T}❯❯   ${T}/V0.0.3/ ${GREEN}SUCCESS"; fi
 chmod 777 /userdata/system/switch/*.AppImage 2>/dev/null
 echo
+rm /userdata/system/switch/appimages/sudachi.zip 2>/dev/null
 cd /userdata/system/switch/appimages
-suda="/userdata/system/switch/appimages/sudachi.zip"
+suda="/userdata/system/switch/appimages/sudachi1.0.12.zip"
 if [ -f "$suda" ]; then
-    cp /userdata/system/switch/appimages/sudachi.zip /userdata/system/switch/sudachi.zip 2>/dev/null;
+    cp /userdata/system/switch/appimages/sudachi1.0.12.zip /userdata/system/switch/extra/sudachi1.0.12.zip 2>/dev/null;
 else 
-    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/sudachi.zip" "https://foclabroc.freeboxos.fr:55973/share/3Y2onhJ2tw2uy2TS/sudachi.zip"
-    cp /userdata/system/switch/appimages/sudachi.zip /userdata/system/switch/sudachi.zip 2>/dev/null; fi
+    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/sudachi1.0.12.zip" "https://foclabroc.freeboxos.fr:55973/share/oXCxIH_JVctZw5XL/sudachi1.0.12.zip"
+    cp /userdata/system/switch/appimages/sudachi1.0.12.zip /userdata/system/switch/extra/sudachi1.0.12.zip 2>/dev/null; fi
     checksum_file=$(md5sum $suda | awk '{print $1}')
-    checksum_verified="38646c269d00be7796b2e501b741ef39"
+    checksum_verified="E6CC00540CF3F9CED5DB309D82E8A6D4"
 		if [[ "$checksum_file" != "$checksum_verified" ]]; then
-		   echo -e "${T}SUDACHI   [${W}!!${T}] download fail put sudachi.zip in (/system/switch/appimages) then relaunch script";    	
+		   echo -e "${T}SUDACHI   [${W}!!${T}] download fail put sudachi1.0.12.zip in (/system/switch/appimages) then relaunch script";    	
 		   rm /userdata/system/switch/appimages/sudachi.zip 2>/dev/null
 		else
-		   echo -e "${T}SUDACHI   ${T}❯❯   ${T}/V1.0.11/ ${GREEN}SUCCESS"; fi
-cd /userdata/system/switch/
+		   echo -e "${T}SUDACHI   ${T}❯❯   ${T}/V1.0.12/ ${GREEN}SUCCESS"; fi
+cd /userdata/system/switch/extra/
+unzip -o -qq /userdata/system/switch/extra/sudachi1.0.12.zip 2>/dev/null
+rm -rf /userdata/system/switch/extra/sudachi1.0.12.zip 2>/dev/null
+chmod 777 /userdata/system/switch/extra/sudachi/sudachi 2>/dev/null
+chmod 777 /userdata/system/switch/extra/sudachi/sudachi-room 2>/dev/null
 rm -rf /userdata/system/switch/sudachi 2>/dev/null
-unzip -o -qq /userdata/system/switch/sudachi.zip 2>/dev/null
-rm -rf /userdata/system/switch/sudachi.zip 2>/dev/null
-chmod 777 /userdata/system/switch/sudachi/bin/sudachi 2>/dev/null
-chmod 777 /userdata/system/switch/sudachi/bin/sudachi-room 2>/dev/null
 echo
 # -------------------------
 links=/userdata/system/switch/extra/links

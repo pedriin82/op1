@@ -32,9 +32,9 @@ class SudachiGenerator(Generator):
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
         #handles chmod
-        if os.path.exists("/userdata/system/switch/sudachi/bin/sudachi"):
-            st = os.stat("/userdata/system/switch/sudachi/bin/sudachi")
-            os.chmod("/userdata/system/switch/sudachi/bin/sudachi", st.st_mode | stat.S_IEXEC)
+        if os.path.exists("/userdata/system/switch/extra/sudachi/sudachi"):
+            st = os.stat("/userdata/system/switch/extra/sudachi/sudachi")
+            os.chmod("/userdata/system/switch/extra/sudachi/sudachi", st.st_mode | stat.S_IEXEC)
 
             #chmod suyu and suyuQL app
             st = os.stat("/userdata/system/switch/extra/batocera-config-sudachiQL")
@@ -58,107 +58,38 @@ class SudachiGenerator(Generator):
         if not os.path.exists(batoceraFiles.SAVES + "/yuzu"):
             os.mkdir(batoceraFiles.SAVES + "/yuzu")        
 
-        #Link Yuzu App Directory to /system/configs/yuzu
-        if not os.path.exists("/userdata/system/.local"):
-            os.mkdir("/userdata/system/.local")
+        #Remove old link and make new
+        if os.path.exists("/userdata/system/configs/sudachi/keys"):
+            if not os.path.islink("/userdata/system/configs/sudachi/keys"):
+                shutil.rmtree("/userdata/system/configs/sudachi/keys")
+        if not os.path.exists("/userdata/system/configs/sudachi/keys"):
+            st = os.symlink("/userdata/system/configs/yuzu/keys","/userdata/system/configs/sudachi/keys")
 
-        if not os.path.exists("/userdata/system/.local/share"):
-            os.mkdir("/userdata/system/.local/share")
+        if os.path.exists("/userdata/system/configs/sudachi/nand"):
+            if not os.path.islink("/userdata/system/configs/sudachi/nand"):
+                shutil.rmtree("/userdata/system/configs/sudachi/nand")
+        if not os.path.exists("/userdata/system/configs/sudachi/nand"):
+            st = os.symlink("/userdata/system/configs/yuzu/nand","/userdata/system/configs/sudachi/nand")
 
-        if not os.path.exists("/userdata/system/.local/share/sudachi"):
-            os.mkdir("/userdata/system/.local/share/sudachi")
-        
-        if not os.path.exists("/userdata/system/.local/share/sudachi/amiibo"):
-            st = os.symlink("/userdata/system/configs/yuzu/amiibo","/userdata/system/.local/share/sudachi/amiibo")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/crash_dumps"):
-            st = os.symlink("/userdata/system/configs/yuzu/crash_dumps","/userdata/system/.local/share/sudachi/crash_dumps")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/custom"):
-            st = os.symlink("/userdata/system/configs/yuzu/custom","/userdata/system/.local/share/sudachi/custom")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/dump"):
-            st = os.symlink("/userdata/system/configs/yuzu/dump","/userdata/system/.local/share/sudachi/dump")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/icons"):
-            st = os.symlink("/userdata/system/configs/yuzu/icons","/userdata/system/.local/share/sudachi/icons")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/keys"):
-            st = os.symlink("/userdata/system/configs/yuzu/keys","/userdata/system/.local/share/sudachi/keys")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/load"):
-            st = os.symlink("/userdata/system/configs/yuzu/load","/userdata/system/.local/share/sudachi/load")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/log"):
-            st = os.symlink("/userdata/system/configs/yuzu/log","/userdata/system/.local/share/sudachi/log")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/nand"):
-            st = os.symlink("/userdata/system/configs/yuzu/nand","/userdata/system/.local/share/sudachi/nand")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/play_time"):
-            st = os.symlink("/userdata/system/configs/yuzu/play_time","/userdata/system/.local/share/sudachi/play_time")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/screenshots"):
-            st = os.symlink("/userdata/system/configs/yuzu/screenshots","/userdata/system/.local/share/sudachi/screenshots")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/sdmc"):
-            st = os.symlink("/userdata/system/configs/yuzu/sdmc","/userdata/system/.local/share/sudachi/sdmc")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/shader"):
-            st = os.symlink("/userdata/system/configs/yuzu/shader","/userdata/system/.local/share/sudachi/shader")
-            
-        if not os.path.exists("/userdata/system/.local/share/sudachi/tas"):
-            st = os.symlink("/userdata/system/configs/yuzu/tas","/userdata/system/.local/share/sudachi/tas")
+        if os.path.exists("/userdata/system/configs/sudachi/load"):
+            if not os.path.islink("/userdata/system/configs/sudachi/load"):
+                shutil.rmtree("/userdata/system/configs/sudachi/load")
+        if not os.path.exists("/userdata/system/configs/sudachi/load"):
+            st = os.symlink("/userdata/system/configs/yuzu/load","/userdata/system/configs/sudachi/load")
 
-        #Link Yuzu Config Directory to /system/configs/yuzu
-        if not os.path.exists("/userdata/system/.config"):
-            os.mkdir("/userdata/system/.config")
+        if os.path.exists("/userdata/system/configs/sudachi/shader"):
+            if not os.path.islink("/userdata/system/configs/sudachi/shader"):
+                shutil.rmtree("/userdata/system/configs/sudachi/shader")
+        if not os.path.exists("/userdata/system/configs/sudachi/shader"):
+            st = os.symlink("/userdata/system/configs/yuzu/shader","/userdata/system/configs/sudachi/shader")
 
-        #Link Yuzu Config Directory to /system/configs/yuzu
-        if not os.path.exists("/userdata/system/.config/sudachi"):
-            os.mkdir("/userdata/system/.config/sudachi")
+        if os.path.exists("/userdata/system/.config/sudachi"):
+            if not os.path.islink("/userdata/system/.config/sudachi"):
+                shutil.rmtree("/userdata/system/.config/sudachi")
 
-        if not os.path.exists("/userdata/system/.config/sudachi/amiibo"):
-            st = os.symlink("/userdata/system/configs/yuzu/amiibo","/userdata/system/.config/sudachi/amiibo")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/crash_dumps"):
-            st = os.symlink("/userdata/system/configs/yuzu/crash_dumps","/userdata/system/.config/sudachi/crash_dumps")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/custom"):
-            st = os.symlink("/userdata/system/configs/yuzu/custom","/userdata/system/.config/sudachi/custom")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/dump"):
-            st = os.symlink("/userdata/system/configs/yuzu/dump","/userdata/system/.config/sudachi/dump")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/icons"):
-            st = os.symlink("/userdata/system/configs/yuzu/icons","/userdata/system/.config/sudachi/icons")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/keys"):
-            st = os.symlink("/userdata/system/configs/yuzu/keys","/userdata/system/.config/sudachi/keys")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/load"):
-            st = os.symlink("/userdata/system/configs/yuzu/load","/userdata/system/.config/sudachi/load")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/log"):
-            st = os.symlink("/userdata/system/configs/yuzu/log","/userdata/system/.config/sudachi/log")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/nand"):
-            st = os.symlink("/userdata/system/configs/yuzu/nand","/userdata/system/.config/sudachi/nand")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/play_time"):
-            st = os.symlink("/userdata/system/configs/yuzu/play_time","/userdata/system/.config/sudachi/play_time")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/screenshots"):
-            st = os.symlink("/userdata/system/configs/yuzu/screenshots","/userdata/system/.config/sudachi/screenshots")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/sdmc"):
-            st = os.symlink("/userdata/system/configs/yuzu/sdmc","/userdata/system/.config/sudachi/sdmc")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/shader"):
-            st = os.symlink("/userdata/system/configs/yuzu/shader","/userdata/system/.config/sudachi/shader")
-            
-        if not os.path.exists("/userdata/system/.config/sudachi/tas"):
-            st = os.symlink("/userdata/system/configs/yuzu/tas","/userdata/system/.config/sudachi/tas")
+        if os.path.exists("/userdata/system/.local/share/sudachi"):
+            if not os.path.islink("/userdata/system/.local/share/sudachi"):
+                shutil.rmtree("/userdata/system/.local/share/sudachi")
 
         #Link Yuzu Saves Directory to /userdata/saves/yuzu
         if not os.path.exists("/userdata/system/.cache"):
@@ -175,8 +106,8 @@ class SudachiGenerator(Generator):
         if not os.path.exists("/userdata/system/.cache/sudachi/game_list"):
             st = os.symlink("/userdata/saves/yuzu","/userdata/system/.cache/sudachi/game_list")
 
-        yuzuConfig = "/userdata/system/.config/sudachi/qt-config.ini"
-        beforeyuzuConfig = "/userdata/system/.config/sudachi/beforeqt-config.ini"
+        yuzuConfig = "/userdata/system/configs/sudachi/qt-config.ini"
+        beforeyuzuConfig = "/userdata/system/configs/sudachi/beforeqt-config.ini"
         
         SudachiGenerator.writeYuzuConfig(yuzuConfig,beforeyuzuConfig, system, playersControllers)
         if system.config['emulator'] == 'sudachi':
@@ -184,9 +115,27 @@ class SudachiGenerator(Generator):
                       # "XDG_DATA_HOME":yuzuSaves, , "XDG_CACHE_HOME":batoceraFiles.CACHE, "XDG_CONFIG_HOME":yuzuHome,
         return Command.Command(
             array=commandArray,
-            env={"QT_QPA_PLATFORM":"xcb","SDL_GAMECONTROLLERCONFIG": controllersConfig.generateSdlGameControllerConfig(playersControllers) }
+            env={"LD_LIBRARY_PATH":"/userdata/system/switch/extra/yuzuea",
+                 "XDG_DATA_HOME":"/userdata/system/configs",
+                 "XDG_CONFIG_HOME":"/userdata/system/configs",
+                 "XDG_CACHE_HOME":"/userdata/system/configs",
+                 "QT_QPA_PLATFORM_PLUGIN_PATH":"${QT_PLUGIN_PATH}",
+                 "QT_PLUGIN_PATH":"/usr/lib/qt/plugins:/usr/plugins:${QT_PLUGIN_PATH}",
+                 "QT_QPA_PLATFORM": "xcb",
+                 "DRI_PRIME":"1", 
+                 "AMD_VULKAN_ICD":"RADV",
+                 "DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1":"1",
+                 "QT_XKB_CONFIG_ROOT":"/usr/share/X11/xkb",
+                 "LC_ALL":"C.utf8",
+                 "NO_AT_BRIDGE":"1",
+                 "XDG_MENU_PREFIX":"batocera-",
+                 "XDG_CONFIG_DIRS":"/etc/xdg",
+                 "XDG_CURRENT_DESKTOP":"XFCE",
+                 "DESKTOP_SESSION":"XFCE",
+                 "QT_FONT_DPI":"96",
+                 "QT_SCALE_FACTOR":"1",
+                 "GDK_SCALE":"1"}
             )
-
 
     # @staticmethod
     def writeYuzuConfig(yuzuConfigFile, beforeyuzuConfigFile, system, playersControllers):
@@ -291,7 +240,7 @@ class SudachiGenerator(Generator):
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20sudachi\Controller_KeySeq\\default", "false")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq", "F4")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq\\default", "false")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq", "Home+ZL")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq", "Minus+B")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq\\default", "false")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq", "Ctrl+N")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq\\default", "false")
@@ -1592,9 +1541,6 @@ class SudachiGenerator(Generator):
 
         with open(beforeyuzuConfigFile, 'w') as configfile:
             yuzuConfig.write(configfile)
-
-        if not os.path.exists("/userdata/system/.local/share/sudachi/qt-config.ini"):
-            st = os.symlink("/userdata/system/.config/sudachi/qt-config.ini","/userdata/system/.local/share/sudachi/qt-config.ini")
 
     # @staticmethod
     # def setButton(key, padGuid, padInputs,controllernumber):
