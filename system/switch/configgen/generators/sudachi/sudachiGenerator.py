@@ -58,12 +58,18 @@ class SudachiGenerator(Generator):
         if not os.path.exists(batoceraFiles.SAVES + "/yuzu"):
             os.mkdir(batoceraFiles.SAVES + "/yuzu")        
 
+        #Create OS folder
+        if not os.path.exists("/userdata/system/configs/yuzu/keys"):
+            os.mkdir("/userdata/system/configs/yuzu/keys")
+
+        if not os.path.exists("/userdata/system/configs/sudachi"):
+            os.mkdir("/userdata/system/configs/sudachi")
+
         #Remove old link and make new
         if os.path.exists("/userdata/system/configs/sudachi/keys"):
             if not os.path.islink("/userdata/system/configs/sudachi/keys"):
                 shutil.rmtree("/userdata/system/configs/sudachi/keys")
         if not os.path.exists("/userdata/system/configs/sudachi/keys"):
-	    os.mkdir("/userdata/system/configs/yuzu/keys")
             st = os.symlink("/userdata/system/configs/yuzu/keys","/userdata/system/configs/sudachi/keys")
 
         if os.path.exists("/userdata/system/configs/sudachi/nand"):
