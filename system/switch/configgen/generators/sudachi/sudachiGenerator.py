@@ -111,7 +111,7 @@ class SudachiGenerator(Generator):
         
         SudachiGenerator.writeYuzuConfig(yuzuConfig,beforeyuzuConfig, system, playersControllers)
         if system.config['emulator'] == 'sudachi':
-            commandArray = ["/userdata/system/switch/extra/sudachi/sudachi", "-f",  "-g", rom ]
+            commandArray = ["padsp", "/userdata/system/switch/extra/sudachi/sudachi", "-f",  "-g", rom ]
                       # "XDG_DATA_HOME":yuzuSaves, , "XDG_CACHE_HOME":batoceraFiles.CACHE, "XDG_CONFIG_HOME":yuzuHome,
         return Command.Command(
             array=commandArray,
