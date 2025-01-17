@@ -1543,19 +1543,22 @@ clear
 echo -e "${W}INSTALL WITH LOCAL APPIMAGE (/system/switch/appimages/) OTHERWISE DOWNLOAD IT ONLINE WAIT 1 TO 5 MINUTES!!"
 mkdir /userdata/system/switch/appimages 2>/dev/null
 cd /userdata/system/switch/appimages
-suyU="/userdata/system/switch/appimages/suyu.AppImage"
-if [ -f "$suyU" ]; then
-    cp /userdata/system/switch/appimages/suyu.AppImage /userdata/system/switch/suyu.AppImage 2>/dev/null;
+citronE="/userdata/system/switch/appimages/citron.AppImage"
+if [ -f "$citronE" ]; then
+    cp /userdata/system/switch/appimages/citron.AppImage /userdata/system/switch/citron.AppImage 2>/dev/null;
 else 
-    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/suyu.AppImage" "https://foclabroc.freeboxos.fr:55973/share/R6i7dVr560xwTpTj/suyu.AppImage"
-    cp /userdata/system/switch/appimages/suyu.AppImage /userdata/system/switch/suyu.AppImage 2>/dev/null; fi
-    checksum_file=$(md5sum $suyU | awk '{print $1}')
-    checksum_verified="0871793d8d393f4544d98eaf992c23c0"
-		if [[ "$checksum_file" != "$checksum_verified" ]]; then
-		   echo -e "${T}SUYU-DEV   [${W}!!${T}] download fail put suyu.AppImage in (/system/switch/appimages) then relaunch script";    	
-		   rm /userdata/system/switch/appimages/suyu.AppImage 2>/dev/null
+    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/citron.AppImage" "https://foclabroc.freeboxos.fr:55973/share/2QjD5U2qZ-4-GbB8/citron.AppImage"
+    cp /userdata/system/switch/appimages/citron.AppImage /userdata/system/switch/citron.AppImage 2>/dev/null; fi
+        if [ -f "$citronE" ] && [ $(stat -c%s "$citronE") -gt 2048 ]; then
+		   echo -e "${T}CITRON   [${W}!!${T}] download fail put citron.AppImage in (/system/switch/appimages) then relaunch script";    	
+		   rm /userdata/system/switch/appimages/citron.AppImage 2>/dev/null
 		else
-		   echo -e "${T}SUYU-DEV   ${T}❯❯   ${T}/V0.0.3/ ${GREEN}SUCCESS"; fi
+		   echo -e "${T}CITRON   ${T}❯❯   ${T}/V0.2/ ${GREEN}SUCCESS"; fi
+cd /userdata/system/switch/extra/
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/extra/libcitron.zip" "https://github.com/foclabroc/batocera-switch/raw/main/system/switch/extra/libcitron.zip"
+unzip -o -qq /userdata/system/switch/extra/libcitron.zip 2>/dev/null
+rm -rf /userdata/system/switch/extra/libcitron.zip 2>/dev/null
+
 chmod 777 /userdata/system/switch/*.AppImage 2>/dev/null
 echo
 rm /userdata/system/switch/appimages/sudachi.zip 2>/dev/null

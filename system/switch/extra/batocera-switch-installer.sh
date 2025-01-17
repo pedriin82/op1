@@ -163,6 +163,15 @@ rm "/userdata/roms/ports/Sudachi Qlauncher.sh" 2>/dev/null
 rm "/userdata/roms/ports/Sudachi Qlauncher.sh.keys" 2>/dev/null
 rm "/userdata/roms/ports/Switch Updater40.sh.keys" 2>/dev/null
 rm "/userdata/roms/ports/Switch Updater40.sh" 2>/dev/null
+rm /userdata/system/switch/extra/suyu.png 2>/dev/null
+rm /userdata/system/switch/extra/suyu-config.desktop 2>/dev/null
+rm /userdata/system/switch/extra/batocera-config-suyu 2>/dev/null
+rm /userdata/system/switch/extra/batocera-config-suyuQL 2>/dev/null
+rm /userdata/system/.local/share/applications/suyu-config.desktop 2>/dev/null
+rm /userdata/system/switch/extra/batocera-config-suyuQL 2>/dev/null
+rm "/userdata/roms/ports/Suyu Qlauncher.sh.keys" 2>/dev/null 
+rm "/userdata/roms/ports/Suyu Qlauncher.sh" 2>/dev/null
+rm /userdata/system/configs/evmapy/switch.keys 2>/dev/null
 
 # -------------------------------------------------------------------- 
 # FILL PATHS
@@ -187,7 +196,7 @@ mkdir /userdata/system/switch 2>/dev/null
 mkdir /userdata/system/switch/extra 2>/dev/null
 mkdir /userdata/system/switch/configgen 2>/dev/null
 mkdir /userdata/system/switch/configgen/generators 2>/dev/null
-mkdir /userdata/system/switch/configgen/generators/suyu 2>/dev/null
+mkdir /userdata/system/switch/configgen/generators/citron 2>/dev/null
 mkdir /userdata/system/switch/configgen/generators/yuzu 2>/dev/null
 mkdir /userdata/system/switch/configgen/generators/ryujinx 2>/dev/null
 mkdir /userdata/system/switch/configgen/generators/sudachi 2>/dev/null
@@ -219,12 +228,10 @@ wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/ryuj
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/ryujinx.png" "$url/ryujinx.png"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/yuzu.png" "$url/yuzu.png"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/yuzuEA.png" "$url/yuzuEA.png"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/batocera-config-suyu" "$url/batocera-config-suyu"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/batocera-config-suyuQL" "$url/batocera-config-suyuQL"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/suyu.png" "$url/suyu.png"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/sudachi.png" "$url/sudachi.png"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/suyu-config.desktop" "$url/suyu-config.desktop"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/sudachi-config.desktop" "$url/sudachi-config.desktop"
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/citron.png" "$url/citron.png"
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/batocera-config-citron" "$url/batocera-config-citron"
+
 # -------------------------------------------------------------------- 
 # + get default config file: 
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/CONFIG.txt" "https://raw.githubusercontent.com/foclabroc/batocera-switch/main/system/switch/extra/batocera-switch-config.txt"
@@ -235,10 +242,10 @@ url=https://raw.githubusercontent.com/foclabroc/batocera-switch/main/system/swit
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/__init__.py" "$url/__init__.py"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/ryujinxMainlineGenerator.py" "$url/ryujinxMainlineGenerator.py"
 # -------------------------------------------------------------------- 
-# FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS/SUYU-DEV
-path=/userdata/system/switch/configgen/generators/suyu
-url=https://raw.githubusercontent.com/foclabroc/batocera-switch/main/system/switch/configgen/generators/suyu
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/suyuGenerator.py" "$url/suyuGenerator.py"
+# FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS/CITRON
+path=/userdata/system/switch/configgen/generators/citron
+url=https://raw.githubusercontent.com/foclabroc/batocera-switch/main/system/switch/configgen/generators/citron
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/citronGenerator.py" "$url/citronGenerator.py"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/SWITCH/CONFIGGEN/GENERATORS/SUDACHI
 path=/userdata/system/switch/configgen/generators/sudachi
@@ -284,8 +291,6 @@ wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/swit
 path=/userdata/roms/ports 
 url=https://raw.githubusercontent.com/foclabroc/batocera-switch/main/roms/ports
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Switch Updater.sh" "$url/Switch Updater.sh"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Suyu Qlauncher.sh" "$url/Suyu Qlauncher.sh"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Suyu Qlauncher.sh.keys" "$url/Suyu Qlauncher.sh.keys"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/ROMS/PORTS/IMAGES 
 path=/userdata/roms/ports/images
@@ -295,14 +300,11 @@ wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Swit
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Switch Updater-mix.png" "$url/Switch Updater-mix.png"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Switch Updater-screenshot.png" "$url/Switch Updater-screenshot.png"
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Switch Updater-wheel.png" "$url/Switch Updater-wheel.png"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/suyu-boxart.png" "$url/suyu-boxart.png"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/suyu-logo.png" "$url/suyu-logo.png"
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/suyu-screenshot.png" "$url/suyu-screenshot.png"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/.LOCAL/SHARE/APPLICATIONS
 path=/userdata/system/.local/share/applications
 url=https://raw.githubusercontent.com/foclabroc/batocera-switch/main/system/switch/extra
-wget --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/suyu-config.desktop" "$url/suyu-config.desktop"
+wget --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/citron-config.desktop" "$url/citron-config.desktop"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/SYSTEM/.LOCAL/SHARE/APPLICATIONS
 path=/userdata/system/.local/share/applications
