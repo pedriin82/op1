@@ -1561,8 +1561,10 @@ rm -rf /userdata/system/switch/extra/libcitron.zip 2>/dev/null
 
 chmod 777 /userdata/system/switch/*.AppImage 2>/dev/null
 echo
-rm /userdata/system/switch/appimages/sudachi.zip 2>/dev/null
 cd /userdata/system/switch/appimages
+rm /userdata/system/switch/appimages/sudachi.zip 2>/dev/null
+rm /userdata/system/switch/appimages/suyu.AppImage 2>/dev/null
+
 suda="/userdata/system/switch/appimages/sudachi1.0.12.zip"
 if [ -f "$suda" ]; then
     cp /userdata/system/switch/appimages/sudachi1.0.12.zip /userdata/system/switch/extra/sudachi1.0.12.zip 2>/dev/null;
