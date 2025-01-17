@@ -1174,8 +1174,8 @@ if [ -f "$link_ryujinx" ]; then
 		  LD_LIBRARY_PATH="/userdata/system/switch/extra:/usr/lib64:/usr/lib:/lib:${LD_LIBRARY_PATH}" $extra/batocera-switch-tar -xf $temp/$emu/*.tar.gz
 		  wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/extra/extralibr.zip" "https://github.com/foclabroc/batocera-switch/raw/main/system/switch/extra/extralibr.zip"
 		  cd /userdata/system/switch/extra/
-          unzip -o -qq /userdata/system/switch/extra/extralibr.zip 2>/dev/null
-		  cp /userdata/system/switch/extra/extralibr/lib* $extra/$emu/
+		  unzip -o -qq /userdata/system/switch/extra/extralibr.zip 2>/dev/null
+		  cp /userdata/system/switch/extra/extralibr/lib* $extra/$emu/ 2>/dev/null
 		  rm -rf /userdata/system/switch/extra/extralibr 2>/dev/null
 		  rm /userdata/system/switch/extra/extralibr.zip 2>/dev/null
 		  mkdir $extra/$emu/mime 2>/dev/null; 
