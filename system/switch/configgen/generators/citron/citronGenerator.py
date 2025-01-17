@@ -116,7 +116,7 @@ class CitronGenerator(Generator):
         yuzuConfig = batoceraFiles.CONF + '/yuzu/qt-config.ini'
         beforeyuzuConfig = batoceraFiles.CONF + '/yuzu/before-qt-config.ini'
         
-        YuzuMainlineGenerator.writeYuzuConfig(yuzuConfig,beforeyuzuConfig, system, playersControllers)
+        CitronGenerator.writeYuzuConfig(yuzuConfig,beforeyuzuConfig, system, playersControllers)
         if system.config['emulator'] == 'citron':
             commandArray = ["/userdata/system/switch/citron.AppImage", "-f",  "-g", rom ]
                       # "XDG_DATA_HOME":yuzuSaves, , "XDG_CACHE_HOME":batoceraFiles.CACHE, "XDG_CONFIG_HOME":yuzuHome,
@@ -810,11 +810,11 @@ class CitronGenerator(Generator):
 
                             #Configure buttons and triggers
                             for x in yuzuButtons:
-                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(YuzuMainlineGenerator.setButton(yuzuButtons[x], inputguid, controller.inputs,portnumber)))
+                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(CitronGenerator.setButton(yuzuButtons[x], inputguid, controller.inputs,portnumber)))
                                 yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x + "\\default", "false")
 
                             for x in yuzuAxis:
-                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(YuzuMainlineGenerator.setAxis(yuzuAxis[x], inputguid, controller.inputs, portnumber, 1)))
+                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(CitronGenerator.setAxis(yuzuAxis[x], inputguid, controller.inputs, portnumber, 1)))
                                 yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x + "\\default", "false")
 
 
@@ -852,11 +852,11 @@ class CitronGenerator(Generator):
 
                             #Configure buttons and triggers
                             for x in yuzuButtons:
-                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(YuzuMainlineGenerator.setButton(yuzuButtons[x], inputguid, controller.inputs,portnumber)))
+                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(CitronGenerator.setButton(yuzuButtons[x], inputguid, controller.inputs,portnumber)))
                                 yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x + "\\default", "false")
 
                             for x in yuzuAxis:
-                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(YuzuMainlineGenerator.setAxis(yuzuAxis[x], inputguid, controller.inputs, portnumber,2)))
+                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(CitronGenerator.setAxis(yuzuAxis[x], inputguid, controller.inputs, portnumber,2)))
                                 yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x + "\\default", "false")
 
                         else:
@@ -892,12 +892,12 @@ class CitronGenerator(Generator):
 
                             #Configure buttons and triggers
                             for x in yuzuButtons:
-                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(YuzuMainlineGenerator.setButton(yuzuButtons[x], inputguid, controller.inputs,portnumber)))
+                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(CitronGenerator.setButton(yuzuButtons[x], inputguid, controller.inputs,portnumber)))
                         
                                 yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x + "\\default", "false")                           
 
                             for x in yuzuAxis:
-                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(YuzuMainlineGenerator.setAxis(yuzuAxis[x], inputguid, controller.inputs, portnumber,0)))     
+                                yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x, '"{}"'.format(CitronGenerator.setAxis(yuzuAxis[x], inputguid, controller.inputs, portnumber,0)))     
                                 yuzuConfig.set("Controls", "player_" + controllernumber + "_" + x + "\\default", "false")
 
                         #Enable motion no matter what, as enabling won't hurt things if it doesn't exist
@@ -1559,7 +1559,7 @@ class CitronGenerator(Generator):
             if input.type == "button":
                 return ("button:{},guid:{},port:{},engine:sdl").format(input.id, padGuid, controllernumber)
             elif input.type == "hat":
-                return ("hat:{},direction:{},guid:{},port:{},engine:sdl").format(input.id, YuzuMainlineGenerator.hatdirectionvalue(input.value), padGuid, controllernumber)
+                return ("hat:{},direction:{},guid:{},port:{},engine:sdl").format(input.id, CitronGenerator.hatdirectionvalue(input.value), padGuid, controllernumber)
             elif input.type == 'axis':
                 return ("threshold:0.500000,axis:{},pad:0,port:{},guid:{},engine:sdl").format(input.id, controllernumber, padGuid)
 
