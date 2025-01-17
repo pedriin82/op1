@@ -1550,10 +1550,10 @@ else
     wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/citron.AppImage" "https://foclabroc.freeboxos.fr:55973/share/2QjD5U2qZ-4-GbB8/citron.AppImage"
     cp /userdata/system/switch/appimages/citron.AppImage /userdata/system/switch/citron.AppImage 2>/dev/null; fi
         if [ -f "$citronE" ] && [ $(stat -c%s "$citronE") -gt 2048 ]; then
-		   echo -e "${T}CITRON   [${W}!!${T}] download fail put citron.AppImage in (/system/switch/appimages) then relaunch script";    	
-		   rm /userdata/system/switch/appimages/citron.AppImage 2>/dev/null
+		   echo -e "${T}CITRON   ${T}❯❯   ${T}/V0.2/ ${GREEN}SUCCESS";
 		else
-		   echo -e "${T}CITRON   ${T}❯❯   ${T}/V0.2/ ${GREEN}SUCCESS"; fi
+		   rm /userdata/system/switch/appimages/citron.AppImage 2>/dev/null
+		   echo -e "${T}CITRON   [${W}!!${T}] download fail put citron.AppImage in (/system/switch/appimages) then relaunch script"; fi
 cd /userdata/system/switch/extra/
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/extra/libcitron.zip" "https://github.com/foclabroc/batocera-switch/raw/main/system/switch/extra/libcitron.zip"
 unzip -o -qq /userdata/system/switch/extra/libcitron.zip 2>/dev/null
