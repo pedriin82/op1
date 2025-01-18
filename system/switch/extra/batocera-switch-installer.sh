@@ -377,10 +377,13 @@ echo
 echo -e "   ${X}$APPNAME INSTALLED${X}" 
 echo 
 echo 
+echo -e "   ${RED}USERDATA MUST BE IN EXT4/BTRFS! TO MAKE SWITCH EMULATION WORKS ${RED}"
+echo -e "   ${RED}NO HELP PROVIDED IF YOU ARE NOT IN EXT4/BTRFS! ${RED}"
+echo 
 echo -e "   ${X}IF INSTALLATION/DOWNLOAD FAIL ${X}"
 echo -e "   ${X}> Add manualy appimage/tar/zip in /userdata/system/switch/appimages${X}" 
-echo -e "   ${X}> Files pack available here : ${X}" 
-echo -e "   ${X}> https://1fichier.com/?3e044oww12djzfwvqbfb ${X}" 
+echo -e "   ${X}> FILES PACK AVAILABLE HERE : ${X}" 
+echo -e "   ${GREEN}> https://1fichier.com/?l1da2ulstdbycg0mfho9 ${GREEN}" 
 echo -e "   ${X}> After that launch SWITCH UPDATER from PORTS ${X}" 
 echo
 echo
