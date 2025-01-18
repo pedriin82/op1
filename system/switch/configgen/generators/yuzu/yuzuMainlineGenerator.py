@@ -214,9 +214,11 @@ class YuzuMainlineGenerator(Generator):
         yuzuConfig.set("UI", "Screenshots\\screenshot_path", "/userdata/screenshots")
         yuzuConfig.set("UI", "Screenshots\\screenshot_path\\default", "false")
 
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq", "F4")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq", "Z")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq\\default", "false")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq", "Home+ZL")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq", "Home+ZL")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq\default", "false")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq", "Home+B")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq\\default", "false")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq", "Ctrl+N")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq\\default", "false")

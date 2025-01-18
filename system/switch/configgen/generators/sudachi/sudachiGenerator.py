@@ -245,9 +245,11 @@ class SudachiGenerator(Generator):
 
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20sudachi\Controller_KeySeq", "Minus+Plus")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20sudachi\Controller_KeySeq\\default", "false")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq", "F4")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq", "Z")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq\\default", "false")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq", "Minus+B")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq", "Home+ZL")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq\default", "false")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq", "Home+B")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq\\default", "false")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq", "Ctrl+N")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq\\default", "false")
