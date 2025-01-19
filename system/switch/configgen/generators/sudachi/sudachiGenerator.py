@@ -101,6 +101,12 @@ class SudachiGenerator(Generator):
         if not os.path.exists("/userdata/system/configs/sudachi/sdmc"):
             st = os.symlink("/userdata/system/configs/yuzu/sdmc","/userdata/system/configs/sudachi/sdmc")
 
+        if os.path.exists("/userdata/system/configs/sudachi/screenshots"):
+            if not os.path.islink("/userdata/system/configs/sudachi/screenshots"):
+                shutil.rmtree("/userdata/system/configs/sudachi/screenshots")
+        if not os.path.exists("/userdata/system/configs/sudachi/screenshots"):
+            st = os.symlink("/userdata/system/configs/yuzu/screenshots","/userdata/system/configs/sudachi/screenshots")
+
         if os.path.exists("/userdata/system/configs/sudachi/shader"):
             if not os.path.islink("/userdata/system/configs/sudachi/shader"):
                 shutil.rmtree("/userdata/system/configs/sudachi/shader")
