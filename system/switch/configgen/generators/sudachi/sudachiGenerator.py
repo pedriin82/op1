@@ -36,9 +36,7 @@ class SudachiGenerator(Generator):
             st = os.stat("/userdata/system/switch/extra/sudachi/sudachi")
             os.chmod("/userdata/system/switch/extra/sudachi/sudachi", st.st_mode | stat.S_IEXEC)
 
-            #chmod suyu and suyuQL app
-            st = os.stat("/userdata/system/switch/extra/batocera-config-sudachiQL")
-            os.chmod("/userdata/system/switch/extra/batocera-config-sudachiQL", st.st_mode | stat.S_IEXEC)
+            #chmod sudachi app
             st = os.stat("/userdata/system/switch/extra/batocera-config-sudachi")
             os.chmod("/userdata/system/switch/extra/batocera-config-sudachi", st.st_mode | stat.S_IEXEC)
 
@@ -62,15 +60,28 @@ class SudachiGenerator(Generator):
         if not os.path.exists("/userdata/system/configs/yuzu/keys"):
             os.mkdir("/userdata/system/configs/yuzu/keys")
 
+        #Create Sudachi Configs Folder
         if not os.path.exists("/userdata/system/configs/sudachi"):
             os.mkdir("/userdata/system/configs/sudachi")
 
         #Remove old link and make new
+        if os.path.exists("/userdata/system/configs/sudachi/amiibo"):
+            if not os.path.islink("/userdata/system/configs/sudachi/amiibo"):
+                shutil.rmtree("/userdata/system/configs/sudachi/amiibo")
+        if not os.path.exists("/userdata/system/configs/sudachi/amiibo"):
+            st = os.symlink("/userdata/system/configs/yuzu/amiibo","/userdata/system/configs/sudachi/amiibo")
+
         if os.path.exists("/userdata/system/configs/sudachi/keys"):
             if not os.path.islink("/userdata/system/configs/sudachi/keys"):
                 shutil.rmtree("/userdata/system/configs/sudachi/keys")
         if not os.path.exists("/userdata/system/configs/sudachi/keys"):
             st = os.symlink("/userdata/system/configs/yuzu/keys","/userdata/system/configs/sudachi/keys")
+
+        if os.path.exists("/userdata/system/configs/sudachi/custom"):
+            if not os.path.islink("/userdata/system/configs/sudachi/custom"):
+                shutil.rmtree("/userdata/system/configs/sudachi/custom")
+        if not os.path.exists("/userdata/system/configs/sudachi/custom"):
+            st = os.symlink("/userdata/system/configs/yuzu/custom","/userdata/system/configs/sudachi/custom")
 
         if os.path.exists("/userdata/system/configs/sudachi/nand"):
             if not os.path.islink("/userdata/system/configs/sudachi/nand"):
@@ -83,6 +94,12 @@ class SudachiGenerator(Generator):
                 shutil.rmtree("/userdata/system/configs/sudachi/load")
         if not os.path.exists("/userdata/system/configs/sudachi/load"):
             st = os.symlink("/userdata/system/configs/yuzu/load","/userdata/system/configs/sudachi/load")
+
+        if os.path.exists("/userdata/system/configs/sudachi/sdmc"):
+            if not os.path.islink("/userdata/system/configs/sudachi/sdmc"):
+                shutil.rmtree("/userdata/system/configs/sudachi/sdmc")
+        if not os.path.exists("/userdata/system/configs/sudachi/sdmc"):
+            st = os.symlink("/userdata/system/configs/yuzu/sdmc","/userdata/system/configs/sudachi/sdmc")
 
         if os.path.exists("/userdata/system/configs/sudachi/shader"):
             if not os.path.islink("/userdata/system/configs/sudachi/shader"):

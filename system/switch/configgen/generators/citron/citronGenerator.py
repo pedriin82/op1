@@ -66,6 +66,14 @@ class CitronGenerator(Generator):
             os.mkdir("/userdata/system/configs/citron")
             
         #Link yuzu/citron nand/key/config.ini
+        if not os.path.exists("/userdata/system/configs/citron/amiibo"):
+            st = os.symlink("/userdata/system/configs/yuzu/amiibo","/userdata/system/configs/citron/amiibo")
+        if not os.path.exists("/userdata/system/configs/citron/custom"):
+            st = os.symlink("/userdata/system/configs/yuzu/custom","/userdata/system/configs/citron/custom")
+        if not os.path.exists("/userdata/system/configs/citron/screenshots"):
+            st = os.symlink("/userdata/system/configs/yuzu/screenshots","/userdata/system/configs/citron/screenshots")
+        if not os.path.exists("/userdata/system/configs/citron/sdmc"):
+            st = os.symlink("/userdata/system/configs/yuzu/sdmc","/userdata/system/configs/citron/sdmc")
         if not os.path.exists("/userdata/system/configs/citron/nand"):
             st = os.symlink("/userdata/system/configs/yuzu/nand","/userdata/system/configs/citron/nand")
         if not os.path.exists("/userdata/system/configs/citron/keys"):
@@ -81,24 +89,24 @@ class CitronGenerator(Generator):
         if not os.path.exists("/userdata/system/configs/citron/qt-config.ini"):
             st = os.symlink("/userdata/system/configs/yuzu/qt-config.ini","/userdata/system/configs/citron/qt-config.ini")
 
-        #Remove .local/share/suyu if it exists and isnt' a link
+        #Remove Old SUYU link
         if os.path.islink("/userdata/system/.local/share/suyu"):
             os.unlink("/userdata/system/.local/share/suyu")
-
         if os.path.exists("/userdata/system/.local/share/suyu"):
             shutil.rmtree("/userdata/system/.local/share/suyu")
 
-        #Remove .config/suyu if it exists and isnt' a link
         if os.path.islink("/userdata/system/.config/suyu"):
             os.unlink("/userdata/system/.config/suyu")
-
         if os.path.exists("/userdata/system/.config/suyu"):
             shutil.rmtree("/userdata/system/.config/suyu")
 
-        #Remove .cache/suyu if it exists and isnt' a link
+        if os.path.islink("/userdata/system/configs/suyu"):
+            os.unlink("/userdata/system/configs/suyu")
+        if os.path.exists("/userdata/system/configs/suyu"):
+            shutil.rmtree("/userdata/system/configs/suyu")
+
         if os.path.islink("/userdata/system/.cache/suyu"):
             os.unlink("/userdata/system/.cache/suyu")
-
         if os.path.exists("/userdata/system/.cache/suyu"): 
             shutil.rmtree("/userdata/system/.cache/suyu")
 
