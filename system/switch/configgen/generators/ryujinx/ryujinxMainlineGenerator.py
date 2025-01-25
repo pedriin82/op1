@@ -46,9 +46,6 @@ class RyujinxMainlineGenerator(Generator):
         if os.path.exists("/userdata/system/switch/Ryujinx-Avalonia.AppImage"):
             st = os.stat("/userdata/system/switch/Ryujinx-Avalonia.AppImage")
             os.chmod("/userdata/system/switch/Ryujinx-Avalonia.AppImage", st.st_mode | stat.S_IEXEC)
-        if os.path.exists("/userdata/system/switch/Ryujinx-LDN.AppImage"):
-            st = os.stat("/userdata/system/switch/Ryujinx-LDN.AppImage")
-            os.chmod("/userdata/system/switch/Ryujinx-LDN.AppImage", st.st_mode | stat.S_IEXEC)  
 
         if not path.isdir(batoceraFiles.CONF + "/Ryujinx"):
             os.mkdir(batoceraFiles.CONF + "/Ryujinx")
@@ -69,15 +66,11 @@ class RyujinxMainlineGenerator(Generator):
         if firstrun:  #Run Ryujinx with no rom so users can install firmware
             if system.config['emulator'] == 'ryujinx-avalonia':
                 commandArray = ["/userdata/system/switch/Ryujinx-Avalonia.AppImage"]
-            elif system.config['emulator'] == 'ryujinx-ldn':
-                commandArray = ["/userdata/system/switch/Ryujinx-LDN.AppImage"]
             else:
                 commandArray = ["/userdata/system/switch/Ryujinx.AppImage"]
         else:
             if system.config['emulator'] == 'ryujinx-avalonia':
                 commandArray = ["/userdata/system/switch/Ryujinx-Avalonia.AppImage" , rom]
-            elif system.config['emulator'] == 'ryujinx-ldn':
-                commandArray = ["/userdata/system/switch/Ryujinx-LDN.AppImage" , rom]
             else:
                 commandArray = ["/userdata/system/switch/Ryujinx.AppImage" , rom]
         eslog.debug("Controller Config before Playing: {}".format(controllersConfig.generateSdlGameControllerConfig(playersControllers)))
@@ -93,9 +86,6 @@ class RyujinxMainlineGenerator(Generator):
         if system.config['emulator'] == 'ryujinx-avalonia':
             filename = "/userdata/system/switch/extra/ryujinxavalonia/version.txt"
             os.environ["PYSDL2_DLL_PATH"] = "/userdata/system/switch/extra/ryujinxavalonia/"
-        elif system.config['emulator'] == 'ryujinx-ldn':
-            filename = "/userdata/system/switch/extra/ryujinxldn/version.txt"
-            os.environ["PYSDL2_DLL_PATH"] = "/userdata/system/switch/extra/ryujinxldn/"
         else:
             filename = "/userdata/system/switch/extra/ryujinx/version.txt"
             os.environ["PYSDL2_DLL_PATH"] = "/userdata/system/switch/extra/ryujinx/"
@@ -130,7 +120,7 @@ class RyujinxMainlineGenerator(Generator):
                 data['version'] = 42
         else:
             if ryu_version >= 1267:
-                data['version'] = 49
+                data['version'] = 61
             elif ryu_version >= 924:
                 data['version'] = 47
             elif ryu_version > 382:
