@@ -1543,25 +1543,22 @@ clear
 echo -e "${W}INSTALL WITH LOCAL APPIMAGE (/system/switch/appimages/) OTHERWISE DOWNLOAD IT ONLINE WAIT 1 TO 5 MINUTES!!"
 mkdir /userdata/system/switch/appimages 2>/dev/null
 cd /userdata/system/switch/appimages
-citronE="/userdata/system/switch/appimages/citron.AppImage"
+citronE="/userdata/system/switch/appimages/citron0.3.AppImage"
 if [ -f "$citronE" ]; then
-    cp /userdata/system/switch/appimages/citron.AppImage /userdata/system/switch/citron.AppImage 2>/dev/null;
+    cp /userdata/system/switch/appimages/citron0.3.AppImage /userdata/system/switch/citron.AppImage 2>/dev/null;
 else 
-    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/citron.AppImage" "https://foclabroc.freeboxos.fr:55973/share/2QjD5U2qZ-4-GbB8/citron.AppImage"
-    cp /userdata/system/switch/appimages/citron.AppImage /userdata/system/switch/citron.AppImage 2>/dev/null; fi
+    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/citron0.3.AppImage" "https://foclabroc.freeboxos.fr:55973/share/VYvMV9a7NzPNNfrj/citron0.3.AppImage"
+    cp /userdata/system/switch/appimages/citron0.3.AppImage /userdata/system/switch/citron.AppImage 2>/dev/null; fi
         if [ -f "$citronE" ] && [ $(stat -c%s "$citronE") -gt 2048 ]; then
-		   echo -e "${T}CITRON   ${T}❯❯   ${T}/V0.2/ ${GREEN}SUCCESS";
+		   echo -e "${T}CITRON   ${T}❯❯   ${T}/V0.3/ ${GREEN}SUCCESS";
 		else
 		   rm /userdata/system/switch/appimages/citron.AppImage 2>/dev/null
 		   echo -e "${T}CITRON   [${W}!!${T}] download fail put citron.AppImage in (/system/switch/appimages) then relaunch script"; fi
-cd /userdata/system/switch/extra/
-wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/extra/libcitron.zip" "https://github.com/foclabroc/batocera-switch/raw/main/system/switch/extra/libcitron.zip"
-unzip -o -qq /userdata/system/switch/extra/libcitron.zip 2>/dev/null
-rm -rf /userdata/system/switch/extra/libcitron.zip 2>/dev/null
 
 chmod 777 /userdata/system/switch/*.AppImage 2>/dev/null
 echo
 cd /userdata/system/switch/appimages
+rm /userdata/system/switch/appimages/citron.AppImage 2>/dev/null
 rm /userdata/system/switch/appimages/sudachi.zip 2>/dev/null
 rm /userdata/system/switch/appimages/suyu.AppImage 2>/dev/null
 

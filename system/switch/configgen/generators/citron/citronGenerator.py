@@ -130,8 +130,7 @@ class CitronGenerator(Generator):
                       # "XDG_DATA_HOME":yuzuSaves, , "XDG_CACHE_HOME":batoceraFiles.CACHE, "XDG_CONFIG_HOME":yuzuHome,
         return Command.Command(
             array=commandArray,
-            env={"LD_LIBRARY_PATH":"/userdata/system/switch/extra/libcitron",
-                 "XDG_DATA_HOME":"/userdata/system/configs",
+            env={"XDG_DATA_HOME":"/userdata/system/configs",
                  "XDG_CONFIG_HOME":"/userdata/system/configs",
                  "XDG_CACHE_HOME":"/userdata/system/configs",
                  "QT_QPA_PLATFORM_PLUGIN_PATH":"${QT_PLUGIN_PATH}",
@@ -141,7 +140,6 @@ class CitronGenerator(Generator):
                  "AMD_VULKAN_ICD":"RADV",
                  "DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1":"1",
                  "QT_XKB_CONFIG_ROOT":"/usr/share/X11/xkb",
-                 "LC_ALL":"C.utf8",
                  "NO_AT_BRIDGE":"1",
                  "XDG_MENU_PREFIX":"batocera-",
                  "XDG_CONFIG_DIRS":"/etc/xdg",
@@ -252,12 +250,10 @@ class CitronGenerator(Generator):
 
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq", "Z")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq\\default", "false")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq", "Home+ZL")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq", "Minus+B")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq\default", "false")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq", "Home+B")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq\\default", "false")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq", "Ctrl+N")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq\\default", "false")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20citron\Controller_KeySeq", "Minus+Plus")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20citron\Controller_KeySeq\\default", "false")
 
     # Data Storage section
         if not yuzuConfig.has_section("Data%20Storage"):
