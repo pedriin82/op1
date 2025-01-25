@@ -134,7 +134,7 @@ class CitronGenerator(Generator):
                  "XDG_CONFIG_HOME":"/userdata/system/configs",
                  "XDG_CACHE_HOME":"/userdata/system/configs",
                  "QT_QPA_PLATFORM_PLUGIN_PATH":"${QT_PLUGIN_PATH}",
-                 "QT_PLUGIN_PATH":"/usr/lib/qt/plugins:/usr/plugins:${QT_PLUGIN_PATH}",
+                 "QT_PLUGIN_PATH":"/userdata/system/switch/citron.AppImage",
                  "QT_QPA_PLATFORM": "xcb",
                  "DRI_PRIME":"1", 
                  "AMD_VULKAN_ICD":"RADV",
@@ -252,8 +252,6 @@ class CitronGenerator(Generator):
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq\\default", "false")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq", "Minus+B")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq\default", "false")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20citron\Controller_KeySeq", "Minus+Plus")
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20citron\Controller_KeySeq\\default", "false")
 
     # Data Storage section
         if not yuzuConfig.has_section("Data%20Storage"):
