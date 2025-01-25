@@ -248,10 +248,16 @@ class CitronGenerator(Generator):
         yuzuConfig.set("UI", "Screenshots\\screenshot_path", "/userdata/screenshots")
         yuzuConfig.set("UI", "Screenshots\\screenshot_path\\default", "false")
 
-        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq", "Z")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20citron\Controller_KeySeq", "Minus+Plus")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20citron\Controller_KeySeq\\default", "false")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq", "F4")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\KeySeq\\default", "false")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq", "Minus+B")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Fullscreen\Controller_KeySeq\default", "false")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq", "Home+ZL")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq\\default", "false")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\KeySeq", "Esc")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\KeySeq\\default", "false")
 
     # Data Storage section
         if not yuzuConfig.has_section("Data%20Storage"):
