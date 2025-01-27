@@ -165,6 +165,8 @@ class YuzuMainlineGenerator(Generator):
         yuzuConfig.set("UI", "fullscreen\\default", "false")
         yuzuConfig.set("UI", "confirmClose", "false")
         yuzuConfig.set("UI", "confirmClose\\default", "false")
+        yuzuConfig.set("UI", "confirmStop", "2")
+        yuzuConfig.set("UI", "confirmStop\\default", "false")
         yuzuConfig.set("UI", "firstStart", "false")
         yuzuConfig.set("UI", "firstStart\\default", "false")
         yuzuConfig.set("UI", "displayTitleBars", "false")
@@ -225,6 +227,8 @@ class YuzuMainlineGenerator(Generator):
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\Controller_KeySeq\\default", "false")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\KeySeq", "Esc")
         yuzuConfig.set("UI", "Shortcuts\Main%20Window\Exit%20Fullscreen\KeySeq\\default", "false")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq", "P")
+        yuzuConfig.set("UI", "Shortcuts\Main%20Window\Continue\Pause%20Emulation\KeySeq\default", "false")
 
 
     # Data Storage section
