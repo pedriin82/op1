@@ -373,7 +373,7 @@ if [[ -e /userdata/system/switch/extra/installation ]]; then
 rm /userdata/system/switch/extra/installation 2>/dev/null
 clear
 echo 
-echo -e "   ${X}INSTALLER BY FOCLABROC{X}" 
+echo -e "   ${BLUE}INSTALLER BY FOCLABROC ${BLUE}" 
 echo -e "   ${X}$APPNAME INSTALLED${X}" 
 echo 
 echo 
