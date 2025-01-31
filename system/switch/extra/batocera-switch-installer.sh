@@ -373,12 +373,14 @@ if [[ -e /userdata/system/switch/extra/installation ]]; then
 rm /userdata/system/switch/extra/installation 2>/dev/null
 clear
 echo 
-echo 
+echo -e "   ${X}INSTALLER BY FOCLABROC{X}" 
 echo -e "   ${X}$APPNAME INSTALLED${X}" 
 echo 
 echo 
+echo -e "   ${RED}INFORMATION! ${RED}"
 echo -e "   ${RED}USERDATA MUST BE IN EXT4/BTRFS! TO MAKE SWITCH EMULATION WORKS ${RED}"
 echo -e "   ${RED}NO HELP PROVIDED IF YOU ARE NOT IN EXT4/BTRFS! ${RED}"
+echo -e "   ${RED}IF YOU ARE ALREADY IN BTRFS/EXT4 YOU CAN IGNORE THIS MESSAGE ${RED}"
 echo 
 echo -e "   ${X}IF INSTALLATION/DOWNLOAD FAIL ${X}"
 echo -e "   ${X}> Add manualy appimage/tar/zip in /userdata/system/switch/appimages${X}" 
@@ -391,22 +393,15 @@ echo -e "   ${X}----------------------------------------------------------------
 echo -e "   ${X}Place your keys into /userdata/bios/switch/${X}" 
 echo -e "   ${X}Firmware *.nca into /userdata/bios/switch/firmware/${X}" 
 echo
-echo -e "   ${X}Use Switch Updater in Ports to update emulators${X}" 
-echo -e "   ${X}For Switch Updater settings, check:${X}"
-echo -e "   ${X}/userdata/system/switch/CONFIG.txt${X}" 
 echo -e "   ${X}-------------------------------------------------------------------${X}"
 echo
 echo
 echo -e "   ${X}-------------------------------------------------------------------${X}"
-echo -e "   ${X}IN CASE OF ISSUES: ${X}"
+echo -e "   ${X}IN CASE OF CONTROLLER ISSUES: ${X}"
 echo 
-echo -e "   ${X}1) try using opengl instead of vulkan ${X}"
 echo -e "   ${X}2) use [autocontroller = off] in advanced settings & ${X}"
 echo -e "   ${X}   configure controller manually in f1-applications ${X}"
 echo
-echo -e "   ${X}CHECK LOGS: ${X}"
-echo -e "   ${X}> emulators logs are in /userdata/system/switch/logs/${X}" 
-echo -e "   ${X}> emulationstation logs are in /userdata/system/logs/${X}" 
 echo -e "   ${X}-------------------------------------------------------------------${X}"
 echo 
 echo 
