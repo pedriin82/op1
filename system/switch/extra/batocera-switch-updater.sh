@@ -1561,26 +1561,22 @@ cd /userdata/system/switch/appimages
 rm /userdata/system/switch/appimages/citron.AppImage 2>/dev/null
 rm /userdata/system/switch/appimages/citron0.3.AppImage 2>/dev/null
 rm /userdata/system/switch/appimages/sudachi.zip 2>/dev/null
+rm /userdata/system/switch/appimages/sudachi1.0.12.zip 2>/dev/null
 rm /userdata/system/switch/appimages/suyu.AppImage 2>/dev/null
 
-suda="/userdata/system/switch/appimages/sudachi1.0.12.zip"
+suda="/userdata/system/switch/appimages/sudachi1.0.14.AppImage"
 if [ -f "$suda" ]; then
-    cp /userdata/system/switch/appimages/sudachi1.0.12.zip /userdata/system/switch/extra/sudachi1.0.12.zip 2>/dev/null;
+    cp /userdata/system/switch/appimages/sudachi1.0.14.AppImage /userdata/system/switch/sudachi.AppImage 2>/dev/null;
 else 
-    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/sudachi1.0.12.zip" "https://foclabroc.freeboxos.fr:55973/share/oXCxIH_JVctZw5XL/sudachi1.0.12.zip"
-    cp /userdata/system/switch/appimages/sudachi1.0.12.zip /userdata/system/switch/extra/sudachi1.0.12.zip 2>/dev/null; fi
-    checksum_file=$(md5sum $suda | awk '{print $1}')
-    checksum_verified="e6cc00540cf3f9ced5db309d82e8a6d4"
-		if [[ "$checksum_file" != "$checksum_verified" ]]; then
-		   echo -e "${T}SUDACHI   [${W}!!${T}] download fail put sudachi1.0.12.zip in (/system/switch/appimages) then relaunch script";    	
-		   rm /userdata/system/switch/appimages/sudachi.zip 2>/dev/null
+    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/sudachi1.0.14.AppImage" "https://foclabroc.freeboxos.fr:55973/share/EnGhjDVvv18KJGvz/sudachi1.0.14.AppImage"
+    cp /userdata/system/switch/appimages/sudachi1.0.14.AppImage /userdata/system/switch/sudachi.AppImage 2>/dev/null; fi
+        if [ -f "$suda" ] && [ $(stat -c%s "$suda") -gt 2048 ]; then
+		   echo -e "${T}SUDACHI   ${T}❯❯   ${T}/V1.0.14/ ${GREEN}SUCCESS";
 		else
-		   echo -e "${T}SUDACHI   ${T}❯❯   ${T}/V1.0.12/ ${GREEN}SUCCESS"; fi
-cd /userdata/system/switch/extra/
-unzip -o -qq /userdata/system/switch/extra/sudachi1.0.12.zip 2>/dev/null
-rm -rf /userdata/system/switch/extra/sudachi1.0.12.zip 2>/dev/null
-chmod 777 /userdata/system/switch/extra/sudachi/sudachi 2>/dev/null
-chmod 777 /userdata/system/switch/extra/sudachi/sudachi-room 2>/dev/null
+		   rm /userdata/system/switch/appimages/sudachi1.0.14.AppImage 2>/dev/null
+		   echo -e "${T}SUDACHI   [${W}!!${T}] download fail put sudachi1.0.14.AppImage in (/system/switch/appimages) then relaunch script"; fi
+
+chmod 777 /userdata/system/switch/sudachi.AppImage 2>/dev/null
 rm -rf /userdata/system/switch/sudachi 2>/dev/null
 echo
 # -------------------------

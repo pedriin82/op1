@@ -37,9 +37,9 @@ class SudachiGenerator(Generator):
 
     def generate(self, system, rom, playersControllers, metadata, guns, wheels, gameResolution):
         #handles chmod
-        if os.path.exists("/userdata/system/switch/extra/sudachi/sudachi"):
-            st = os.stat("/userdata/system/switch/extra/sudachi/sudachi")
-            os.chmod("/userdata/system/switch/extra/sudachi/sudachi", st.st_mode | stat.S_IEXEC)
+        if os.path.exists("/userdata/system/switch/sudachi.AppImage"):
+            st = os.stat("/userdata/system/switch/sudachi.AppImage")
+            os.chmod("/userdata/system/switch/sudachi.AppImage", st.st_mode | stat.S_IEXEC)
 
             #chmod sudachi app
             st = os.stat("/userdata/system/switch/extra/batocera-config-sudachi")
@@ -146,17 +146,13 @@ class SudachiGenerator(Generator):
         
         SudachiGenerator.writeYuzuConfig(yuzuConfig,beforeyuzuConfig, system, playersControllers)
         if system.config['emulator'] == 'sudachi':
-            commandArray = ["padsp", "/userdata/system/switch/extra/sudachi/sudachi", "-f",  "-g", rom ]
+            commandArray = ["padsp", "/userdata/system/switch/sudachi.AppImage", "-f",  "-g", rom ]
                       # "XDG_DATA_HOME":yuzuSaves, , "XDG_CACHE_HOME":batoceraFiles.CACHE, "XDG_CONFIG_HOME":yuzuHome,
         return Command.Command(
             array=commandArray,
-            env={"LD_LIBRARY_PATH":"/userdata/system/switch/extra/yuzuea",
-                 "XDG_DATA_HOME":"/userdata/system/configs",
+            env={"XDG_DATA_HOME":"/userdata/system/configs",
                  "XDG_CONFIG_HOME":"/userdata/system/configs",
                  "XDG_CACHE_HOME":"/userdata/system/configs",
-                 "QT_QPA_PLATFORM_PLUGIN_PATH":"${QT_PLUGIN_PATH}",
-                 "QT_PLUGIN_PATH":"/usr/lib/qt/plugins:/userdata/system/switch/extra/lib/qt5plugins:/usr/plugins:${QT_PLUGIN_PATH}",
-                 "QT_QPA_PLATFORM": "xcb",
                  "SDL_GAMECONTROLLERCONFIG": controllersConfig.generateSdlGameControllerConfig(playersControllers),
                  "DRI_PRIME":"1", 
                  "AMD_VULKAN_ICD":"RADV",
