@@ -385,7 +385,7 @@ echo
 echo -e "   ${X}IF INSTALLATION/DOWNLOAD FAIL ${X}"
 echo -e "   ${X}> Add manualy appimage/tar/zip in /userdata/system/switch/appimages${X}" 
 echo -e "   ${X}> FILES PACK AVAILABLE HERE : ${X}" 
-echo -e "   ${GREEN}> https://1fichier.com/?l1da2ulstdbycg0mfho9 ${GREEN}" 
+echo -e "   ${GREEN}> https://1fichier.com/?xxn0oki5aac2qdxoh2nq ${GREEN}" 
 echo -e "   ${X}> After that launch SWITCH UPDATER from PORTS ${X}" 
 echo
 echo
