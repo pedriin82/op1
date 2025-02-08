@@ -291,6 +291,8 @@ wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/swit
 path=/userdata/roms/ports 
 url=https://raw.githubusercontent.com/foclabroc/batocera-switch/main/roms/ports
 wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Switch Updater.sh" "$url/Switch Updater.sh"
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Sudachi Qlauncher.sh" "$url/Sudachi Qlauncher.sh"
+wget -q --tries=10 --no-check-certificate --no-cache --no-cookies -O "$path/Sudachi Qlauncher.sh.keys" "$url/Sudachi Qlauncher.sh.keys"
 # -------------------------------------------------------------------- 
 # FILL /USERDATA/ROMS/PORTS/IMAGES 
 path=/userdata/roms/ports/images
