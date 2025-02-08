@@ -1547,7 +1547,7 @@ citronE="/userdata/system/switch/appimages/citron0.4b.AppImage"
 if [ -f "$citronE" ]; then
     cp /userdata/system/switch/appimages/citron0.4b.AppImage /userdata/system/switch/citron.AppImage 2>/dev/null;
 else 
-    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/citron0.4b.AppImage" "https://foclabroc.freeboxos.fr:55973/share/HJG9VAozVFodAwvp/citron0.4.AppImage "
+    wget -q --show-progress --tries=10 --no-check-certificate --no-cache --no-cookies -O "/userdata/system/switch/appimages/citron0.4b.AppImage" "https://foclabroc.freeboxos.fr:55973/share/kLMw1aUjrAMVCzM-/citron0.4.AppImage"
     cp /userdata/system/switch/appimages/citron0.4b.AppImage /userdata/system/switch/citron.AppImage 2>/dev/null; fi
         if [ -f "$citronE" ] && [ $(stat -c%s "$citronE") -gt 2048 ]; then
 		   echo -e "${T}CITRON   ${T}❯❯   ${T}/V2025.02.06/ ${GREEN}SUCCESS";
